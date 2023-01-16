@@ -67,17 +67,19 @@ const TopOrMarginTop = () => {
 
   return (
     <Container>
-      <h1>
+      <h1 className="text-2xl font-semibold">
         <code>top</code>, or <code>margin-top</code>?
       </h1>
-      <div>
+      <div className="my-2 flex justify-center items-center">
         <input
+          className="border border-solid border-slate-700 rounded-lg mr-1"
           value={value}
           onChange={(e) => {
             setValue(e.target.value);
           }}
         />
         <button
+          className="bg-slate-700 rounded-lg font-semibold text-white text-xs leading-6 px-1.5"
           onClick={() => {
             setHeight(Number(value));
           }}
