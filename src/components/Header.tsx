@@ -3,44 +3,6 @@ import { useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
 import { HomeRounded } from "@mui/icons-material";
 
-const HeaderStyled = styled.header`
-  position: fixed;
-  top: 0;
-  left: 0;
-
-  box-sizing: border-box;
-  height: 8%; // ( 4rem / 1080px ) * 100
-  width: 100%;
-
-  display: flex;
-  align-items: center;
-
-  padding: 0.8%;
-  border-bottom: 1px solid #e7ebf0;
-`;
-
-const AStyled = styled.a`
-  display: inline-block;
-  box-sizing: border-box;
-  padding: 0.4rem 0.625rem;
-
-  font-size: 0.875rem;
-  font-family: Pretendard;
-  font-weight: 400;
-
-  text-decoration: none;
-  color: #969ba7;
-
-  border: 1px solid #969ba7;
-  border-radius: 100px;
-  background: #ffffff;
-
-  &:hover {
-    background: #f6f6f6;
-    transition: all 0.5s;
-  }
-`;
-
 const HomeBtn = styled.button`
   position: absolute;
   right: 0;
@@ -66,9 +28,14 @@ const HomeBtn = styled.button`
 const Header = () => {
   const navigate = useNavigate();
   return (
-    <HeaderStyled>
+    <header className="fixed top-0 left-0 box-border h-16 w-full flex items-center p-4 border border-solid border-b-slate-200">
       <nav>
-        <AStyled href="/topOrMarginTop">topOrMarginTop</AStyled>
+        <a
+          href="/topOrMarginTop"
+          className="inline-block box-border py-1.5 px-2.5 text-sm font-normal text-slate-500 border border-solid border-slate-500 rounded-full hover:bg-slate-100 transition duration-500"
+        >
+          topOrMarginTop
+        </a>
       </nav>
       <HomeBtn
         onClick={() => {
@@ -77,7 +44,7 @@ const Header = () => {
       >
         <HomeRounded />
       </HomeBtn>
-    </HeaderStyled>
+    </header>
   );
 };
 

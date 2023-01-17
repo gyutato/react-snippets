@@ -67,7 +67,7 @@ const TopOrMarginTop = () => {
 
   return (
     <Container>
-      <h1 className="text-2xl font-semibold">
+      <h1 className="text-2xl text-slate-700 font-semibold ">
         <code>top</code>, or <code>margin-top</code>?
       </h1>
       <div className="my-2 flex justify-center items-center">
@@ -91,47 +91,31 @@ const TopOrMarginTop = () => {
         style={{ fontSize: "0.5rem" }}
       >{`* Parent's height: ${parentSize.height} | width: ${parentSize.width}`}</p>
       <Parent>
-        <div
-          ref={ref}
-          style={{
-            position: "relative",
-            height: "100%",
-            width: "50%",
-            paddingTop: "1%",
-            marginRight: "5%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "flex-start",
-            background: "#dddfe6",
-            borderRadius: "1rem",
-          }}
-        >
-          <Child top={height}>
-            <h4 style={{ margin: 0 }}>top</h4>
-            <h5 style={{ margin: 0 }}>
-              parent's height * {height}% = {(parentSize.height * height) / 100}
-            </h5>
-          </Child>
+        <div className="h-full w-2/4 mr-8 bg-slate-300 rounded-2xl" ref={ref}>
+          <div className="relative h-full w-full flex justify-center mt-5">
+            <Child top={height}>
+              <h4 className="font-semibold">
+                <code>top</code>
+              </h4>
+
+              <h5>
+                parent's height * {height}% ={" "}
+                {(parentSize.height * height) / 100}
+              </h5>
+            </Child>
+          </div>
         </div>
-        <div
-          style={{
-            position: "relative",
-            height: "100%",
-            width: "50%",
-            paddingTop: "1%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "flex-start",
-            background: "#dddfe6",
-            borderRadius: "1rem",
-          }}
-        >
-          <Child marginTop={height}>
-            <h4 style={{ margin: 0 }}>margin-top</h4>
-            <h5 style={{ margin: 0 }}>
-              parent's width * {height}% = {(parentSize.width * height) / 100}
-            </h5>
-          </Child>
+        <div className="h-full w-2/4 bg-slate-300 rounded-2xl">
+          <div className=" relative h-full w-full flex justify-center mt-5">
+            <Child marginTop={height}>
+              <h4 className="font-semibold">
+                <code>margin-top</code>
+              </h4>
+              <h5>
+                parent's width * {height}% = {(parentSize.width * height) / 100}
+              </h5>
+            </Child>
+          </div>
         </div>
       </Parent>
     </Container>
