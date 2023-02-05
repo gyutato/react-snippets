@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import styled from "@emotion/styled";
 import { HomeRounded } from "@mui/icons-material";
@@ -8,7 +8,7 @@ const HomeBtn = styled.button`
   right: 0;
 
   height: 100%;
-  width: calc(100vh * 0.08);
+  width: var(--header-height);
 
   border: none;
   border-left: 1px solid #e7ebf0;
@@ -28,14 +28,20 @@ const HomeBtn = styled.button`
 const Header = () => {
   const navigate = useNavigate();
   return (
-    <header className="fixed top-0 left-0 box-border h-16 w-full flex items-center p-4 border border-solid border-b-slate-200">
+    <header className="fixed z-50 top-0 left-0 box-border h-[var(--header-height)] w-full flex items-center p-4 border-b border-solid ">
       <nav>
-        <a
-          href="/topOrMarginTop"
+        <Link
+          to="topOrMarginTop"
           className="inline-block box-border py-1.5 px-2.5 text-sm font-normal text-slate-500 border border-solid border-slate-500 rounded-full hover:bg-slate-100 transition duration-500"
         >
           topOrMarginTop
-        </a>
+        </Link>
+        <Link
+          to="fetchDataRender"
+          className="inline-block box-border py-1.5 px-2.5 text-sm font-normal text-slate-500 border border-solid border-slate-500 rounded-full hover:bg-slate-100 transition duration-500"
+        >
+          fetchDataRender
+        </Link>
       </nav>
       <HomeBtn
         onClick={() => {
